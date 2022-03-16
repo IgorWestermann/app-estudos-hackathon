@@ -3,8 +3,8 @@
     <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="text-h6"> Application </v-list-item-title>
-          <v-list-item-subtitle> subtext </v-list-item-subtitle>
+          <v-list-item-title class="text-h6"> NetflIteris </v-list-item-title>
+          <v-list-item-subtitle> What's best 4 U </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
 
@@ -45,7 +45,6 @@ export default {
       { title: "What to see", icon: "mdi-movie-open-play" },
       { title: "Favorites", icon: "mdi-cards-heart" },
       { title: "About us", icon: "mdi-information-outline" },
-      //beabeabae
     ],
   }),
 };
