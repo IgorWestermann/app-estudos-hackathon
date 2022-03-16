@@ -45,6 +45,7 @@ export default {
       { title: "What to see", icon: "mdi-movie-open-play" },
       { title: "Favorites", icon: "mdi-cards-heart" },
       { title: "About us", icon: "mdi-information-outline" },
+      //beabeabae
     ],
   }),
 };
