@@ -17,6 +17,9 @@
       </button>
     </div>
     <p>{{ filmePesquisado }}</p>  <!--apenas para teste de funcionamento -->
+    <p>
+        {{varTeste}}
+    </p>
   </v-container>
 </template>
 <script>
@@ -27,7 +30,8 @@ export default {
     return {
       filme: "",
       filmePesquisado: "",
-    };
+      varTeste: process.env.VUE_APP_API_KEY
+    }
   },
 
   methods: {
