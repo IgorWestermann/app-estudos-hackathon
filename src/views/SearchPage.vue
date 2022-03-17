@@ -1,72 +1,47 @@
 <template>
   <v-container>
-    <br>
+    <br />
     <h2>Pesquisar informações sobre filme:</h2>
     <br />
-    <div class="conjuntoPesquisa">
-      <v-text-field
-        class="pesquisa"
-        type="text"
-        label="Nome do filme"
-        solo
-        v-model="filme"
-        :hide-details="true"
-      >
-      </v-text-field>
-      <button @click="searchMovie(filme)">
-        <v-icon>mdi-magnify</v-icon>
-      </button>
-    </div>
+    <BarraPesquisa :parent-method="searchMovie" label="Nome do filme" />
     <div v-if="foiPesquisado">
-        <SearchedMovie :infCard="infFilme" />
+      <SearchedMovie :infCard="infFilme" />
     </div>
   </v-container>
 </template>
 <script>
-import SearchedMovie from '@/components/SearchedMovie.vue';
+import SearchedMovie from "@/components/SearchedMovie.vue";
+import BarraPesquisa from '@/components/shared/BarraPesquisa.vue';
 export default {
-  components: { SearchedMovie },
+  components: { SearchedMovie, BarraPesquisa },
   name: "SearchPage",
 
   data() {
     return {
       filme: "",
       infFilme: [],
-      foiPesquisado: false
-    }
+      foiPesquisado: false,
+    };
   },
 
   methods: {
     searchMovie(movie) {
-        this.convertName(movie)
-        fetch("https://www.omdbapi.com/?t=" + this.filme + "&apikey=" + process.env.VUE_APP_API_KEY)
-        .then(resposta => resposta.json())
-        .then(json => {
-            this.infFilme = json
-      })
-        this.filme = ""
-        this.foiPesquisado = true
+      this.convertName(movie);
+      fetch("https://www.omdbapi.com/?t=" + this.filme + "&apikey=" + process.env.VUE_APP_API_KEY)
+        .then((resposta) => resposta.json())
+        .then((json) => {
+          this.infFilme = json;
+        });
+      this.filme = "";
+      this.foiPesquisado = true;
     },
 
     convertName(movie) {
-        this.filme = movie.replace(" ","+")
-    }
-  }
-
+      this.filme = movie.replace(" ", "+");
+    },
+  },
 };
 </script>
 <style scoped>
-.pesquisa {
-  width: 80%;
-}
-.conjuntoPesquisa{
-    display:flex;
-    justify-content: center;
-    align-items: baseline;
-}
-button{
-    width: 20%;
-}
-
 
 </style>
