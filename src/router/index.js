@@ -12,7 +12,7 @@ const routes = [
     component: HomePage
   },
   {
-    path: '/',
+    path: '/favorites',
     name: 'Favorites',
     component: FavoritesPage
   },
