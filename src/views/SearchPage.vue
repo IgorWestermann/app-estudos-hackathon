@@ -10,16 +10,16 @@
         label="Nome do filme"
         solo
         v-model="filme"
+        :hide-details="true"
       >
       </v-text-field>
       <button @click="searchMovie(filme)">
         <v-icon>mdi-magnify</v-icon>
       </button>
     </div>
-    <p>API: {{ infFilme.Title }}</p>
-
-    <SearchedMovie :infCard="infFilme" />
-
+    <div v-if="foiPesquisado">
+        <SearchedMovie :infCard="infFilme" />
+    </div>
   </v-container>
 </template>
 <script>
@@ -32,6 +32,7 @@ export default {
     return {
       filme: "",
       infFilme: [],
+      foiPesquisado: false
     }
   },
 
@@ -44,6 +45,7 @@ export default {
             this.infFilme = json
       })
         this.filme = ""
+        this.foiPesquisado = true
     },
 
     convertName(movie) {
@@ -65,4 +67,6 @@ export default {
 button{
     width: 20%;
 }
+
+
 </style>
