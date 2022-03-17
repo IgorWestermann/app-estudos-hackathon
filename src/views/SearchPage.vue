@@ -30,19 +30,23 @@ export default {
   data() {
     return {
       filme: "",
-      infFilme: []
+      infFilme: [],
+      keyAPI:""
     }
   },
 
   methods: {
     searchMovie(movie) {
-      this.filme = movie
-      fetch("https://www.omdbapi.com/?t=" + this.filme + "&apikey=" + process.env.VUE_APP_API_KEY)
-      .then(resposta => resposta.json())
-      .then(json => {
-          this.infFilme = json
+        this.convertName(movie)
+        fetch("https://www.omdbapi.com/?t=" + this.filme + "&apikey=" + process.env.VUE_APP_API_KEY)
+        .then(resposta => resposta.json())
+        .then(json => {
+            this.infFilme = json
       })
-      this.filme = ""
+        this.filme = ""
+    },
+    convertName(movie) {
+        this.filme = movie.replace(" ","+")
     }
   }
 
