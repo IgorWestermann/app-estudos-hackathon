@@ -16,10 +16,11 @@
         <v-icon>mdi-magnify</v-icon>
       </button>
     </div>
-    <p>{{ filmePesquisado }}</p>  <!--apenas para teste de funcionamento -->
-    <p>
-        {{varTeste}}
-    </p>
+    <p>API: {{ infFilme.Title }}</p>
+    <p> Filme: {{ filme }}</p>
+    <p> key: {{ keyAPI }}</p>
+
+
   </v-container>
 </template>
 <script>
@@ -29,17 +30,22 @@ export default {
   data() {
     return {
       filme: "",
-      filmePesquisado: "",
-      varTeste: process.env.VUE_APP_API_KEY
+      infFilme: []
     }
   },
 
   methods: {
     searchMovie(movie) {
-      this.filmePesquisado = movie;
-      this.filme = "";
-    },
-  },
+      this.filme = movie
+      fetch("https://www.omdbapi.com/?t=" + this.filme + "&apikey=" + process.env.VUE_APP_API_KEY)
+      .then(resposta => resposta.json())
+      .then(json => {
+          this.infFilme = json
+      })
+      this.filme = ""
+    }
+  }
+
 };
 </script>
 <style scoped>
