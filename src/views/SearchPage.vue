@@ -7,7 +7,8 @@
       <v-text-field
         class="pesquisa"
         type="text"
-        placeholder="Nome do filme"
+        label="Nome do filme"
+        solo
         v-model="filme"
       >
       </v-text-field>
@@ -43,6 +44,8 @@ export default {
 }
 .conjuntoPesquisa{
     display:flex;
+    justify-content: center;
+    align-items: baseline;
 }
 button{
     width: 20%;
