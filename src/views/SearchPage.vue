@@ -17,21 +17,21 @@
       </button>
     </div>
     <p>API: {{ infFilme.Title }}</p>
-    <p> Filme: {{ filme }}</p>
-    <p> key: {{ keyAPI }}</p>
 
+    <SearchedMovie :infCard="infFilme" />
 
   </v-container>
 </template>
 <script>
+import SearchedMovie from '@/components/SearchedMovie.vue';
 export default {
+  components: { SearchedMovie },
   name: "SearchPage",
 
   data() {
     return {
       filme: "",
       infFilme: [],
-      keyAPI:""
     }
   },
 
@@ -45,6 +45,7 @@ export default {
       })
         this.filme = ""
     },
+
     convertName(movie) {
         this.filme = movie.replace(" ","+")
     }
