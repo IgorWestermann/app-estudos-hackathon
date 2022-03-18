@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePage from '../views/HomePage.vue'
 import FavoritesPage from '../views/FavoritesPage.vue'
+import SearchPage from "../views/SearchPage"
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,11 @@ const routes = [
     name: 'Favorites',
     component: FavoritesPage
   },
+  {
+    path: '/search',
+    name: 'search-page',
+    component: SearchPage
+  }
 ]
 
 const router = new VueRouter({

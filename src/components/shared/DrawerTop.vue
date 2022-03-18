@@ -41,7 +41,7 @@ export default {
     drawer: null,
     items: [
       { title: "Welcome", icon: "mdi-home" },
-      { title: "Search", icon: "mdi-magnify" },
+      { title: "Search", icon: "mdi-magnify", path: "/search" },
       { title: "What to see", icon: "mdi-movie-open-play" },
       { title: "Favorites", icon: "mdi-cards-heart" },
       { title: "About us", icon: "mdi-information-outline" },

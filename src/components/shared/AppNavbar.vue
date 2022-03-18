@@ -21,7 +21,7 @@
             </v-list-item>
           </router-link>
 
-          <router-link to="/">
+          <router-link to="/search">
             <v-list-item>
               <v-list-item-icon>
                 <v-icon>mdi-magnify</v-icon>
