@@ -62,7 +62,6 @@
     </v-navigation-drawer>
   </div>
 </template>
-
 <script>
 export default {
   name: "AppNavbar",
