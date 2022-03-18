@@ -19,10 +19,20 @@
 <script>
 export default {
   name: "BarraPesquisa",
-  props: [
-      "parentMethod",
-      "label"
-  ],
+
+   props: {
+      parentMethod: function (inputResult){
+        return inputResult
+      },
+      label: String
+   },
+
+   // DESSA MANEIRA ELE PRÓPRIO IDENTIFICA O TYPE
+
+//  props: [
+ //     "parentMethod",
+ //     "label"
+ // ],
 
   data() {
       return {
